@@ -6,7 +6,6 @@
     <meta name="theme-color" content="#ffffff">
     <title>Job Master Pro - App Version</title>
     
-    <!-- External Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -36,26 +35,28 @@
 
         /* --- DARK MODE CSS OVERRIDES --- */
         body.dark-theme { background-color: #0f172a; color: #f8fafc; }
-        body.dark-theme .top-app-bar, body.dark-theme .bottom-nav { background-color: #1e293b; border-color: #334155; }
+        body.dark-theme .top-app-bar { background-color: #1e293b; border-color: #334155; }
         body.dark-theme .app-title, body.dark-theme #app-bar-profile-name { color: #f8fafc; }
         body.dark-theme .app-title span { color: #60a5fa; }
         body.dark-theme .welcome-text, body.dark-theme .home-card-title, body.dark-theme h2, body.dark-theme h3, body.dark-theme h4 { color: #f8fafc !important; }
         body.dark-theme .job-card, body.dark-theme .home-card, body.dark-theme .auth-card, body.dark-theme .modal-content, body.dark-theme #dropdown-menu { background-color: #1e293b; border-color: #334155; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.5); }
         body.dark-theme .bg-slate-50, body.dark-theme .bg-white { background-color: #0f172a !important; border-color: #1e293b !important; }
+        body.dark-theme .bg-\[\#f1f5f9\] { background-color: #0f172a !important; }
         body.dark-theme #admin-search-container { background-color: transparent !important; }
         body.dark-theme #admin-search-container .bg-white { background-color: #1e293b !important; border-color: #334155 !important; }
-        body.dark-theme .text-slate-800, body.dark-theme .text-slate-900 { color: #f8fafc !important; }
-        body.dark-theme .text-slate-700 { color: #cbd5e1 !important; }
-        body.dark-theme .text-slate-500 { color: #94a3b8 !important; }
+        /* Naya Text Color Logic for Dark Mode */
+body.dark-theme .text-slate-900, body.dark-theme .text-slate-800, body.dark-theme .text-slate-700, body.dark-theme .text-slate-600, body.dark-theme .text-gray-900, body.dark-theme .text-gray-800, body.dark-theme .text-gray-700, body.dark-theme .text-gray-600, body.dark-theme .text-black { color: #ffffff !important; }
+
+body.dark-theme .text-slate-500, body.dark-theme .text-slate-400, body.dark-theme .text-gray-500, body.dark-theme .text-gray-400 { color: #cbd5e1 !important; }
+
         body.dark-theme input, body.dark-theme textarea, body.dark-theme select { background-color: #0f172a !important; color: #f8fafc !important; border-color: #334155 !important; }
-        body.dark-theme .nav-item.active { color: #f8fafc; }
-        body.dark-theme .nav-item.active i { background-color: #334155; color: #60a5fa; }
         body.dark-theme .border-slate-100, body.dark-theme .border-slate-200 { border-color: #334155 !important; }
         body.dark-theme .todo-item-inline { background-color: #0f172a; border-color: #334155; color: #cbd5e1; }
         body.dark-theme #dropdown-menu button:hover { background-color: #334155 !important; }
         body.dark-theme .status-badge.bg-amber-100 { background-color: rgba(245, 158, 11, 0.2); color: #fbbf24; }
         body.dark-theme .status-badge.bg-emerald-100 { background-color: rgba(16, 185, 129, 0.2); color: #34d399; }
         body.dark-theme .prod-log-item { background-color: #0f172a; border-color: #334155; }
+        body.dark-theme .nav-item.active { color: #60a5fa !important; background-color: #334155 !important; }
 
         /* --- OVERLAYS & MODALS --- */
         #global-auth-overlay {
@@ -138,7 +139,7 @@
         
         .tab-pane {
             display: none;
-            padding-bottom: 90px; 
+            padding-bottom: 24px; 
         }
         .tab-pane.active {
             display: block;
@@ -146,7 +147,7 @@
 
         .fab {
             position: fixed;
-            bottom: 85px; 
+            bottom: 24px; 
             right: 16px;
             width: 56px;
             height: 56px;
@@ -164,30 +165,9 @@
             transition: transform 0.2s ease, background-color 0.2s ease;
         }
         .fab:active { transform: scale(0.95); background-color: #1d4ed8; }
-
-        .bottom-nav {
-            background-color: #ffffff;
-            height: 65px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            border-top: 1px solid #e5e7eb;
-            padding-bottom: env(safe-area-inset-bottom);
-            z-index: 50;
-            flex-shrink: 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .nav-item {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 4px; color: #6b7280; text-decoration: none; width: 60px; height: 100%;
-            transition: color 0.2s ease;
-        }
-        .nav-item i { font-size: 24px; padding: 4px 12px; border-radius: 16px; transition: background-color 0.2s ease; }
-        .nav-item span { font-size: 11px; font-weight: 500; }
-        .nav-item.active { color: #111827; }
-        .nav-item.active i { background-color: #dbeafe; color: #2563eb; font-weight: bold; }
+        
+        /* Dropdown Nav Items */
+        .nav-item.active { color: #2563eb !important; background-color: #f8fafc; font-weight: 800;}
 
         /* --- JOB MASTER PRO COMPONENTS --- */
         .job-card { 
@@ -199,6 +179,9 @@
         .job-card:active { transform: scale(0.98); }
         .job-card.selected-card { border: 2px solid #2563eb; background-color: rgba(37, 99, 235, 0.05); }
         body.dark-theme .job-card.selected-card { border: 2px solid #60a5fa; background-color: rgba(96, 165, 250, 0.1); }
+
+        .job-card.compact { padding: 14px; margin-bottom: 12px; border-radius: 16px; }
+        .job-card.compact h2 { font-size: 16px; margin-bottom: 4px; }
 
         .copy-toast {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -275,13 +258,11 @@
 
 <body>
 
-    <!-- Action Toast Notification -->
     <div id="action-toast" class="fixed top-20 left-1/2 transform -translate-x-1/2 bg-emerald-500 text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl z-[99999] transition-all duration-300 opacity-0 pointer-events-none translate-y-[-20px] flex items-center gap-2">
         <span id="action-toast-icon"><i class="fa-solid fa-circle-check"></i></span>
         <span id="action-toast-msg">Success</span>
     </div>
 
-    <!-- Auth Lock Screen -->
     <div id="global-auth-overlay">
         <div class="auth-card">
             <div class="w-20 h-20 bg-gradient-to-tr from-blue-600 to-indigo-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-3xl shadow-xl shadow-blue-500/30">
@@ -297,72 +278,77 @@
         </div>
     </div>
     
-    <!-- Waiting Overlay -->
     <div id="waiting-overlay" style="display:none;">
         <i class="fa-solid fa-hourglass-half text-blue-500 text-6xl mb-6 sync-anim"></i>
         <h2 class="text-2xl font-black text-white mb-2 uppercase tracking-tighter text-center">Waiting for Approval</h2>
         <p class="text-slate-400 text-xs font-bold text-center max-w-xs leading-relaxed">Your device request has been sent successfully. Please ask the Admin to approve your request to gain access.</p>
     </div>
 
-    <!-- MAIN APP CONTAINER -->
     <div id="main-android-app" style="display: none; height: 100%; flex-direction: column;">
         
-        <!-- MAIN TOP APP BAR -->
         <header class="top-app-bar flex justify-between items-center" id="main-app-bar">
             
-            <!-- Default View -->
             <div id="normal-top-bar" class="w-full flex justify-between items-center h-full">
-                <!-- App Bar Left: Title OR Profile Pic + Name -->
                 <div id="app-bar-left-container" class="flex items-center gap-3">
                     <div id="default-title" class="app-title">Job<span>Master</span></div>
-                    <div id="profile-title" class="hidden flex items-center gap-2.5 cursor-pointer" onclick="switchTab('tab-profile', document.querySelector('.nav-item:nth-child(4)'))">
+                    <div id="profile-title" class="hidden flex items-center gap-2.5 cursor-pointer" onclick="switchTab('tab-profile', document.getElementById('nav-profile'))">
                         <img id="app-bar-profile-pic" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwIDIxdi0yYTRgNCAwIDAgMC00LTRINThhNCA0IDAgMCAwLTQgNHYyIj48L3BhdGg+PGNpcmNsZSBjeD0iMTIiIGN5PSI3IiByPSI0Ij48L2NpcmNsZT48L3N2Zz4=" class="w-10 h-10 rounded-full object-cover border-[3px] border-white shadow-sm bg-slate-100 p-1">
                         <div class="flex flex-col justify-center">
-                            <span id="app-bar-profile-name" class="font-black text-slate-800 text-[15px] leading-tight tracking-tight capitalize"></span>
+                            <span id="app-bar-profile-name" class="font-semibold text-slate-800 text-[15px] leading-tight capitalize tracking-wide"></span>
+                            <span class="text-[9px] font-semibold text-blue-500 uppercase tracking-widest leading-tight">Job Master</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Home Tab Icons (Visible ONLY when Home tab is open) -->
                 <div class="top-icons items-center flex relative" id="activity-top-icons">
                     
-                    <!-- Toggle Search -->
                     <button id="toggle-search-btn" title="Toggle Search" onclick="toggleSearchBox()" class="w-9 h-9 flex items-center justify-center rounded-xl active:scale-90 text-slate-400 hover:bg-slate-100 transition-colors hidden">
                         <i class="fa-solid fa-magnifying-glass text-[16px]"></i>
                     </button>
 
-                    <!-- Sync Icon -->
                     <button id="sync-icon-btn" onclick="pullData()" class="relative w-9 h-9 flex items-center justify-center rounded-xl hover:bg-slate-100 active:scale-90 transition-transform" title="Sync Data">
                         <i id="sync-icon" class="ph ph-arrows-clockwise text-blue-600 font-bold"></i>
-                        <!-- Pending Badge -->
                         <div id="pending-badge" class="badge-pulse hidden" style="top: 0px; right: 0px;">0</div>
                     </button>
 
-                    <!-- 3 Dots Sidebar Menu -->
                     <div class="relative flex items-center">
                         <button id="menu-btn" onclick="toggleMenu()" class="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-slate-100 active:scale-90 transition-transform">
                             <i class="ph ph-dots-three-vertical text-[24px]"></i>
                         </button>
                         
-                        <!-- Dropdown Menu Content -->
                         <div id="dropdown-menu" class="hidden absolute right-0 top-[45px] bg-white shadow-2xl rounded-xl border border-slate-100 w-52 py-2 z-[100] flex-col overflow-hidden">
-                            <!-- New Show Completed Toggle -->
+                            
+                            <button id="nav-home" onclick="handleMenuTabSwitch('tab-home', this)" class="nav-item active text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors">
+                                <i class="ph-fill ph-house text-[20px] w-5 text-center"></i> <span>Home</span>
+                            </button>
+                            <button id="nav-dashboard" onclick="handleMenuTabSwitch('tab-dashboard', this)" class="nav-item text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors">
+                                <i class="ph ph-squares-four text-[20px] w-5 text-center"></i> <span>Dashboard</span>
+                            </button>
+                            <button id="nav-activity" onclick="handleMenuTabSwitch('tab-activity', this)" class="nav-item text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors">
+                                <i class="ph ph-chart-line-up text-[20px] w-5 text-center"></i> <span>Activity</span>
+                            </button>
+                            <button id="nav-profile" onclick="handleMenuTabSwitch('tab-profile', this)" class="nav-item text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors relative">
+                                <i class="ph ph-user text-[20px] w-5 text-center"></i> <span>Profile</span>
+                                <div id="admin-req-badge" class="badge-pulse hidden" style="position: absolute; top: 12px; right: 16px; width: 14px; height: 14px; min-width: 14px; padding: 0; font-size: 8px;">0</div>
+                            </button>
+
+                            <div class="h-[1px] bg-slate-100 w-full my-1"></div>
+
                             <button onclick="toggleCompletedMenu()" class="text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors">
-                                <i id="menu-eye-icon" class="fa-solid fa-eye-slash text-indigo-500 w-5 text-center text-lg"></i> <span id="menu-eye-text">Completed Jobs</span>
+                                <i id="menu-eye-icon" class="fa-solid fa-eye-slash text-indigo-500 w-5 text-center text-[18px]"></i> <span id="menu-eye-text">Completed Jobs</span>
                             </button>
                             <div class="h-[1px] bg-slate-100 w-full my-1"></div>
                             
-                            <button onclick="toggleDarkMode()" class="text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors"><i class="ph ph-moon text-lg w-5 text-center"></i> <span id="theme-text">Dark Mode</span></button>
-                            <button onclick="exportDataToCSV()" class="text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors" id="export-menu-item" style="display:none;"><i class="fa-solid fa-file-csv text-emerald-600 w-5 text-center"></i> Export CSV</button>
-                            <button onclick="openSortModal()" class="text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors"><i class="fa-solid fa-arrow-down-a-z text-blue-500 w-5 text-center"></i> Sort Jobs</button>
+                            <button onclick="toggleDarkMode()" class="text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors"><i class="ph ph-moon text-[18px] w-5 text-center"></i> <span id="theme-text">Dark Mode</span></button>
+                            <button onclick="exportDataToCSV()" class="text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors" id="export-menu-item" style="display:none;"><i class="fa-solid fa-file-csv text-emerald-600 w-5 text-center text-[18px]"></i> Export CSV</button>
+                            <button onclick="openSortModal()" class="text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors"><i class="fa-solid fa-arrow-down-a-z text-blue-500 w-5 text-center text-[18px]"></i> Sort Jobs</button>
                             <div class="h-[1px] bg-slate-100 w-full my-1"></div>
-                            <button onclick="openSettingsModal()" class="text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors"><i class="fa-solid fa-gear text-slate-400 w-5 text-center"></i> Settings</button>
+                            <button onclick="openSettingsModal()" class="text-left px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-3 transition-colors"><i class="fa-solid fa-gear text-slate-400 w-5 text-center text-[18px]"></i> Settings</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Selection Mode Top Bar (Hidden by default) -->
             <div id="selection-bar" class="hidden absolute inset-0 bg-blue-600 px-4 flex justify-between items-center text-white z-[60]">
                 <div class="flex items-center gap-4">
                     <button onclick="exitSelectionMode()" class="text-xl active:scale-90 transition-transform"><i class="fa-solid fa-xmark"></i></button>
@@ -373,35 +359,29 @@
 
         </header>
 
-        <!-- MAIN SCROLLABLE CONTENT AREA -->
         <main class="content-area">
             
-            <!-- HOME TAB -->
-            <div id="tab-home" class="tab-pane active">
-                <!-- Search Filter -->
-                <div class="sticky top-0 z-[40] bg-[#f1f5f9] px-4 py-3" id="admin-search-container" style="display: none;">
-                    <div class="relative bg-white rounded-xl shadow-sm border border-slate-200">
-                        <i class="fa-solid fa-search absolute left-4 top-3.5 text-slate-400"></i>
-                        <input type="text" id="search" oninput="renderJobs()" placeholder="Search Date, No, Name, Size, GSM, Color..." class="w-full pl-11 p-3 rounded-xl text-slate-900 text-sm font-semibold outline-none focus:ring-2 ring-blue-500/20 bg-transparent">
-                    </div>
+            <div class="sticky top-0 z-[40] bg-[#f1f5f9] px-4 py-3" id="admin-search-container" style="display: none;">
+                <div class="relative bg-white rounded-xl shadow-sm border border-slate-200">
+                    <i class="fa-solid fa-search absolute left-4 top-3.5 text-slate-400"></i>
+                    <input type="text" id="search" oninput="renderJobs()" placeholder="Search Date, No, Name, Size, GSM, Color..." class="w-full pl-11 p-3 rounded-xl text-slate-900 text-sm font-semibold outline-none focus:ring-2 ring-blue-500/20 bg-transparent">
                 </div>
+            </div>
 
-                <!-- Jobs List -->
+            <div id="tab-home" class="tab-pane active">
+
                 <div id="list" class="px-4 pb-4 max-w-2xl mx-auto pt-2"></div>
             </div>
 
-            <!-- DASHBOARD TAB -->
             <div id="tab-dashboard" class="tab-pane p-4">
                 <div class="sticky top-0 bg-[#f1f5f9] pb-2 z-10 pt-2">
                     <h1 class="text-2xl font-black text-slate-800 tracking-tight">Dashboard</h1>
                     <p class="text-[11px] font-bold text-slate-500 uppercase tracking-widest mt-1">Overview & Analytics</p>
                 </div>
                 <div id="dashboard-content" class="mt-4 pb-4">
-                    <!-- Dynamic Dashboard content injected via JS -->
-                </div>
+                    </div>
             </div>
 
-            <!-- ACTIVITY TAB -->
             <div id="tab-activity" class="tab-pane p-4">
                 <div class="sticky top-0 bg-[#f1f5f9] pb-2 z-10 pt-2 flex justify-between items-end">
                     <div>
@@ -410,15 +390,12 @@
                     </div>
                 </div>
                 <div id="activity-list" class="mt-4 flex flex-col gap-3 pb-4">
-                    <!-- Dynamic Activity Cards will appear here -->
-                </div>
+                    </div>
             </div>
 
-            <!-- PROFILE TAB -->
             <div id="tab-profile" class="tab-pane p-4">
                 <h1 class="welcome-text" id="profile-main-heading">User Profile</h1>
                 
-                <!-- Profile Setup Section -->
                 <div id="profile-setup-section" class="home-card text-center mb-6">
                    <div class="relative w-24 h-24 mx-auto mb-4 cursor-pointer" onclick="document.getElementById('profile-pic-input').click()">
                        <div id="profile-setup-icon" class="w-full h-full bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-4xl border-4 border-white shadow-md"><i class="fa-solid fa-camera"></i></div>
@@ -433,7 +410,6 @@
                    <button onclick="saveUserProfile()" class="w-full bg-blue-600 text-white py-3.5 rounded-xl font-black uppercase text-xs tracking-widest shadow-lg shadow-blue-500/30 active:scale-95 transition-transform flex items-center justify-center gap-2"><i class="fa-solid fa-user-check"></i> Save Profile</button>
                 </div>
 
-                <!-- Profile Display Section -->
                 <div id="profile-display-section" class="home-card text-center mb-6 hidden">
                     <img id="profile-large-avatar-img" src="" class="w-24 h-24 rounded-full object-cover mx-auto mb-3 shadow-lg border-4 border-white" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwIDIxdi0yYTRgNCAwIDAgMC00LTRINThhNCA0IDAgMCAwLTQgNHYyIj48L3BhdGg+PGNpcmNsZSBjeD0iMTIiIGN5PSI3IiByPSI0Ij48L2NpcmNsZT48L3N2Zz4='">
                     <h3 id="profile-display-name" class="font-black text-slate-800 text-2xl mb-1 capitalize tracking-tight"></h3>
@@ -442,7 +418,6 @@
                     <button onclick="editUserProfile()" class="mt-5 text-xs font-black text-slate-500 uppercase tracking-widest flex items-center justify-center gap-2 mx-auto bg-slate-50 px-4 py-2 rounded-xl active:scale-95"><i class="fa-solid fa-pen-to-square"></i> Edit Profile</button>
                 </div>
 
-                <!-- Admin Access Panel (Visible only to Admin) -->
                 <div id="profile-admin-section" class="hidden">
                     <h2 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-3 px-1">Admin Configuration</h2>
                     <button onclick="openAdminControls()" class="w-full bg-white border-2 border-slate-100 text-slate-800 p-4 rounded-2xl flex items-center justify-between shadow-sm active:scale-95 transition-transform group hover:border-blue-200">
@@ -462,39 +437,12 @@
 
         </main>
 
-        <!-- FLOATING ACTION BUTTON (Appears only on Home Tab) -->
         <button class="fab" id="main-fab" style="display: flex;" onclick="openNewJob()">
             <i class="ph ph-plus"></i>
         </button>
 
-        <!-- BOTTOM NAVIGATION BAR -->
-        <nav class="bottom-nav">
-            <a href="#" class="nav-item active" onclick="switchTab('tab-home', this)">
-                <i class="ph-fill ph-house"></i>
-                <span>Home</span>
-            </a>
-            <a href="#" class="nav-item" onclick="switchTab('tab-dashboard', this)">
-                <i class="ph ph-squares-four"></i>
-                <span>Dashboard</span>
-            </a>
-            <a href="#" class="nav-item" onclick="switchTab('tab-activity', this)">
-                <i class="ph ph-chart-line-up"></i>
-                <span>Activity</span>
-            </a>
-            <a href="#" class="nav-item relative" onclick="switchTab('tab-profile', this)">
-                <div class="relative flex items-center justify-center">
-                    <i class="ph ph-user"></i>
-                    <!-- Admin Requests Badge on Profile Icon -->
-                    <div id="admin-req-badge" class="badge-pulse hidden" style="position: absolute; top: 0px; right: -4px; width: 14px; height: 14px; min-width: 14px; padding: 0; font-size: 8px;">0</div>
-                </div>
-                <span>Profile</span>
-            </a>
-        </nav>
     </div>
 
-    <!-- MODALS -->
-
-    <!-- Sort Modal -->
     <div id="modal-sort" class="modal">
         <div class="modal-content">
             <div class="flex justify-between items-center mb-6">
@@ -518,17 +466,34 @@
         </div>
     </div>
 
-    <!-- Settings Placeholder Modal -->
     <div id="modal-settings" class="modal">
-        <div class="modal-content text-center">
-            <div class="w-16 h-16 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fa-solid fa-gear"></i></div>
-            <h3 class="font-black text-xl mb-2">Settings</h3>
-            <p class="text-slate-500 text-sm mb-6">System configuration and preferences will be available here soon.</p>
-            <button onclick="closeModals()" class="w-full bg-slate-900 py-3.5 rounded-xl font-bold text-white">Close</button>
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-black text-xl text-slate-800">App Settings</h3>
+                <button onclick="closeModals()" class="text-slate-400 hover:text-slate-700 transition-colors"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            
+            <h4 class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">Job Card Appearance</h4>
+            <div class="grid grid-cols-1 gap-2.5 mb-6">
+                <label class="flex items-center justify-between p-3.5 bg-slate-50 rounded-xl border border-slate-100 cursor-pointer hover:border-blue-200 transition-all">
+                    <div>
+                        <span class="text-sm font-black text-slate-700 block">Compact Cards</span>
+                        <span class="text-[9px] font-bold text-slate-400">Reduce padding and spacing</span>
+                    </div>
+                    <input type="checkbox" id="set-compact" class="toggle-switch" onchange="updateLocalSettings()">
+                </label>
+                <label class="flex items-center justify-between p-3.5 bg-slate-50 rounded-xl border border-slate-100 cursor-pointer hover:border-blue-200 transition-all">
+                    <div>
+                        <span class="text-sm font-black text-slate-700 block">Hide Extra Details</span>
+                        <span class="text-[9px] font-bold text-slate-400">Hide Size, GSM, Color on main view</span>
+                    </div>
+                    <input type="checkbox" id="set-hide-details" class="toggle-switch" onchange="updateLocalSettings()">
+                </label>
+            </div>
+            <button onclick="closeModals()" class="w-full bg-slate-900 text-white py-4 rounded-xl font-black shadow-xl active:scale-95 uppercase tracking-widest text-xs">DONE</button>
         </div>
     </div>
     
-    <!-- Image Viewer Modal -->
     <div id="image-viewer-modal" onclick="this.style.display='none'">
         <button class="fixed top-5 right-5 text-white text-3xl z-[2001] bg-black/50 w-12 h-12 rounded-full flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
         <div class="preview-img-container" onclick="event.stopPropagation()">
@@ -544,7 +509,6 @@
         </div>
     </div>
 
-    <!-- Admin Security/Access Modal -->
     <div id="modal-access" class="modal">
         <div class="modal-content">
             <div class="flex justify-between items-center mb-6">
@@ -560,7 +524,6 @@
         </div>
     </div>
 
-    <!-- User Specific Permissions Modal (Modern Toggles) -->
     <div id="modal-user-permissions" class="modal" style="z-index: 10005;">
         <div class="modal-content">
             <div class="flex justify-between items-center mb-6">
@@ -607,7 +570,6 @@
         </div>
     </div>
 
-    <!-- Job Form Modal -->
     <div id="modal-form" class="modal">
         <div class="modal-content">
             <div class="flex justify-between items-center mb-6">
@@ -626,7 +588,6 @@
                             <div id="sheet-status" class="img-loading hidden">...</div>
                         </div>
                     </div>
-                    <!-- EXTRACT ICON NEXT TO EYE ICON -->
                     <div class="flex gap-1">
                         <button type="button" id="extract-sheet-btn" onclick="extractOCR()" class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center hidden" title="Extract Text"><i class="fa-solid fa-wand-magic-sparkles text-xs"></i></button>
                         <button type="button" id="view-sheet-btn" onclick="viewJobImages(currentJobImageData, currentJobArtworkData)" class="w-8 h-8 bg-slate-900 text-white rounded-lg flex items-center justify-center hidden"><i class="fa-solid fa-eye text-xs"></i></button>
@@ -658,7 +619,6 @@
                         <div class="space-y-1">
                             <label class="text-[9px] font-black text-slate-500 uppercase ml-1">Job Number</label>
                             <input type="text" id="job-no" required oninput="checkJobNo()" class="w-full bg-white border-slate-200 border-2 p-2 rounded-xl text-xs font-bold outline-none focus:border-blue-500">
-                            <!-- Duplicate Job No Warning -->
                             <p id="job-no-warning" class="text-[9px] font-black text-red-500 mt-1 uppercase tracking-wider hidden"><i class="fa-solid fa-triangle-exclamation"></i> This order is already available.</p>
                         </div>
                     </div>
@@ -705,7 +665,6 @@
         </div>
     </div>
 
-    <!-- Production Log Modal -->
     <div id="modal-prod" class="modal">
         <div class="modal-content">
             <div class="flex justify-between items-start mb-6">
@@ -747,7 +706,6 @@
         </div>
     </div>
 
-    <!-- Schedule/Todo Modal -->
     <div id="modal-schedule" class="modal">
         <div class="modal-content">
             <div class="flex justify-between items-start mb-6">
@@ -790,7 +748,6 @@
         </div>
     </div>
 
-    <!-- Delete Confirmation Modal -->
     <div id="modal-delete" class="modal">
         <div class="modal-content text-center">
             <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fa-solid fa-trash-can"></i></div>
@@ -804,33 +761,42 @@
     </div>
 
 
-    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
         // --- NATIVE APP TAB SWITCHING LOGIC ---
+        
+        function handleMenuTabSwitch(tabId, element) {
+            switchTab(tabId, element);
+            toggleMenu();
+        }
+
         function switchTab(tabId, element) {
             document.querySelectorAll('.tab-pane').forEach(tab => tab.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             
-            const activityIcons = document.getElementById('activity-top-icons');
+                       // 3-dots aur sync icon har jagah show honge. Hum sirf search ko control karenge.
+            const searchBtn = document.getElementById('toggle-search-btn');
+            const searchContainer = document.getElementById('admin-search-container');
             
-            if(tabId === 'tab-home') {
-                activityIcons.classList.remove('hidden');
-                activityIcons.classList.add('flex'); 
+            // In 3 tabs par search kaam karega
+            if(tabId === 'tab-home' || tabId === 'tab-dashboard' || tabId === 'tab-activity') {
+                renderJobs(); // renderJobs automatically permissions check karke search icon show kar dega
             } else {
-                activityIcons.classList.add('hidden');
-                activityIcons.classList.remove('flex');
-                if (isSelectionMode) exitSelectionMode(); // Exit selection if leaving home
+                // Profile tab par sirf search hide hoga (3-dots nahi)
+                if (searchBtn) searchBtn.style.display = 'none';
+                if (searchContainer) searchContainer.style.display = 'none';
+                if (isSelectionMode) exitSelectionMode(); // Selection mode exit karein
             }
+
 
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
                 const icon = item.querySelector('i');
-                icon.className = icon.className.replace('ph-fill', 'ph');
+                if (icon) icon.className = icon.className.replace('ph-fill', 'ph');
             });
 
             element.classList.add('active');
             const activeIcon = element.querySelector('i');
-            activeIcon.className = activeIcon.className.replace('ph ', 'ph-fill ');
+            if (activeIcon) activeIcon.className = activeIcon.className.replace('ph ', 'ph-fill ');
 
             // Control Floating Action Button (FAB) visibility
             const fab = document.getElementById('main-fab');
@@ -992,7 +958,7 @@
             }
         }
 
-        function toggleCompletedMenu() {
+              function toggleCompletedMenu() {
             showCompleted = !showCompleted;
             const icon = document.getElementById('menu-eye-icon');
             const text = document.getElementById('menu-eye-text');
@@ -1003,6 +969,14 @@
                 icon.classList.replace('fa-eye', 'fa-eye-slash');
                 text.innerText = 'Completed Jobs';
             }
+            
+            // --- NAYA LOGIC: Automatically Home Tab par bhejne ke liye ---
+            const homeTabBtn = document.getElementById('nav-home');
+            if(homeTabBtn) {
+                switchTab('tab-home', homeTabBtn);
+            }
+            // ------------------------------------------------------------
+            
             renderJobs();
             toggleMenu(); 
         }
@@ -1032,9 +1006,20 @@
             closeModals();
         }
 
+        let appSettings = JSON.parse(localStorage.getItem('app_card_settings')) || { compact: false, hideDetails: false };
+
         function openSettingsModal() {
+            document.getElementById('set-compact').checked = appSettings.compact;
+            document.getElementById('set-hide-details').checked = appSettings.hideDetails;
             document.getElementById('modal-settings').style.display = 'flex';
             toggleMenu();
+        }
+
+        function updateLocalSettings() {
+            appSettings.compact = document.getElementById('set-compact').checked;
+            appSettings.hideDetails = document.getElementById('set-hide-details').checked;
+            localStorage.setItem('app_card_settings', JSON.stringify(appSettings));
+            renderJobs();
         }
 
 
@@ -1349,7 +1334,7 @@
             if(!window.liveSyncInterval) {
                 window.liveSyncInterval = setInterval(() => {
                     silentPullData().then(() => { updateLocalPermissions(); renderJobs(); });
-                }, 10000);
+                }, 5000); // 10000 ko 5000 (5 seconds) kar diya
             }
         }
 
@@ -1496,29 +1481,54 @@
             let schedules = []; try { schedules = JSON.parse(j.Schedule || '[]'); } catch(e) {}
             const schDetail = schedules.length > 0 ? schedules.map(s => `  • ${s.date ? s.date : 'ASAP'}: ${s.qty ? formatNum(s.qty) + ' Bags' : '0 Bags'} [${s.done ? 'DONE' : 'PENDING'}]${s.note ? '\n    Note: ' + s.note : ''}`).join('\n') : "  No schedule items.";
             
-            const textToCopy = `📋 *JOB SUMMARY: #${j.JobNo}*
-📅 *Date:* ${jobDate ? new Date(jobDate).toLocaleDateString('en-GB') : 'N/A'}
+            const textToCopy = `📋 𝐉𝐨𝐛 𝐍𝐨: #${j.JobNo}
+📅 𝐃𝐚𝐭𝐞: ${jobDate ? new Date(jobDate).toLocaleDateString('en-GB') : 'N/A'}
 =========================
-👤 *CUSTOMER:* ${j.Customer}
-🛍️ *Quantity:* ${formatNum(j.BagsQty)} Bags
-📐 *Size:* ${j.Size || 'N/A'} | *GSM:* ${j.GSM || 'N/A'}
-🎨 *Color:* ${j.Color || 'N/A'}
+👤 𝐂𝐮𝐬𝐭𝐨𝐦𝐞𝐫: ${j.Customer}
+🛍️ 𝐐𝐮𝐚𝐧𝐭𝐢𝐭𝐲: ${formatNum(j.BagsQty)} Bags
+📐 𝐒𝐢𝐳𝐞: ${j.Size || 'N/A'} | 𝐆𝐬𝐦: ${j.GSM || 'N/A'}
+🎨 𝐂𝐨𝐥𝐨𝐫: ${j.Color || 'N/A'}
 
-🛠️ *SPECIFICATIONS*
-• Cut Length: ${j.CutLength} cm
-• Printing: ${printType}
-• Available Stock: ${formatNum(j.Stock || 0)} Mtrs
+🛠️ 𝐒𝐏𝐄𝐂𝐈𝐅𝐈𝐂𝐀𝐓𝐈𝐎𝐍
+• 𝐂𝐮𝐭 𝐋𝐞𝐧𝐠𝐭𝐡: ${j.CutLength} cm
+• 𝐏𝐫𝐢𝐧𝐭𝐢𝐧𝐠: ${printType}
 
-📝 *INSTRUCTIONS*
+📝 𝐈𝐍𝐒𝐓𝐑𝐔𝐂𝐓𝐈𝐎𝐍𝐒
 ${instText || "None"}
 
-🚚 *DELIVERY SCHEDULE*
+🚚 𝐃𝐄𝐋𝐈𝐕𝐄𝐑𝐘 𝐒𝐂𝐇𝐄𝐃𝐔𝐋𝐄
 ${schDetail}
 
-⚙️ *PRODUCTION PROGRESS*
-• Target: ${formatNum(req)} Mtrs
-• Completed: ${formatNum(Math.floor(done))} Mtrs (${pct}%)
-• Remaining: ${formatNum(Math.max(0, req - done))} Mtrs
+⚙️ 𝐏𝐑𝐎𝐃𝐔𝐂𝐓𝐈𝐎𝐍 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒
+• 𝐓𝐚𝐫𝐠𝐞𝐭: ${formatNum(req)} Mtrs
+• 𝐂𝐨𝐦𝐩𝐥𝐞𝐭𝐞: ${formatNum(Math.floor(done))} Mtrs (${pct}%)
+• 𝐑𝐞𝐦𝐚𝐢𝐧𝐢𝐧𝐠: ${formatNum(Math.max(0, req - done))} Mtr📋 𝐉𝐨𝐛 𝐍𝐨: #989
+📅 𝐃𝐚𝐭𝐞: 24/02/2026
+=========================
+👤 𝐂𝐮𝐬𝐭𝐨𝐦𝐞𝐫: -Madina Flour Mills: Crown Chokar
+🛍️ 𝐐𝐮𝐚𝐧𝐭𝐢𝐭𝐲: 20,000 Bags
+📐 𝐒𝐢𝐳𝐞: 70 | 𝐆𝐬𝐦: 56
+🎨 𝐂𝐨𝐥𝐨𝐫: White, Red Strip
+
+🛠️ 𝐒𝐏𝐄𝐂𝐈𝐅𝐈𝐂𝐀𝐓𝐈𝐎𝐍
+• 𝐂𝐮𝐭 𝐋𝐞𝐧𝐠𝐭𝐡: 127 cm
+• 𝐏𝐫𝐢𝐧𝐭𝐢𝐧𝐠: Both Side
+
+📝 𝐈𝐍𝐒𝐓𝐑𝐔𝐂𝐓𝐈𝐎𝐍𝐒
+DEALER: M. Akram-(CPL)
+BAGS TYPE: PP WOVEN BOTTOM STITCH OPEN MOUTH BAG
+1. (10,000 Bags) W/O Dealer 
+2. (5,000 Bags) Dealer USMAN SHAH
+3. (5,000 Bags) Dealer LIAQAT SHAH
+
+🚚 𝐃𝐄𝐋𝐈𝐕𝐄𝐑𝐘 𝐒𝐂𝐇𝐄𝐃𝐔𝐋𝐄
+  No schedule items.
+
+⚙️ 𝐏𝐑𝐎𝐃𝐔𝐂𝐓𝐈𝐎𝐍 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒
+• 𝐓𝐚𝐫𝐠𝐞𝐭: 26,670 Mtrs
+• 𝐂𝐨𝐦𝐩𝐥𝐞𝐭𝐞: 0 Mtrs (0%)
+• 𝐑𝐞𝐦𝐚𝐢𝐧𝐢𝐧𝐠: 26,670 Mtrs
+=========================
 =========================`;
             
             const textArea = document.createElement("textarea");
@@ -1617,11 +1627,13 @@ ${schDetail}
                     img.onload = function() {
                         const canvas = document.createElement('canvas');
                         
-                        let width = img.width, height = img.height, maxDim = 600; 
+                        let width = img.width, height = img.height;
+                        let maxDim = type === 'sheet' ? 1400 : 800; 
                         if (width > height) { if (width > maxDim) { height *= maxDim / width; width = maxDim; } } else { if (height > maxDim) { width *= maxDim / height; height = maxDim; } }
                         canvas.width = width; canvas.height = height; canvas.getContext('2d').drawImage(img, 0, 0, width, height);
                         
-                        const base64 = canvas.toDataURL('image/jpeg', 0.6); 
+                        let quality = type === 'sheet' ? 0.85 : 0.6;
+                        const base64 = canvas.toDataURL('image/jpeg', quality); 
                         
                         if(type === 'sheet') { 
                             currentJobImageData = base64; 
@@ -1760,7 +1772,7 @@ ${schDetail}
 
                 const card = document.createElement('div');
                 const isSelected = selectedJobs.has(String(j.ID));
-                card.className = `job-card ${isSelected ? 'selected-card' : ''}`; 
+                card.className = `job-card ${isSelected ? 'selected-card' : ''} ${appSettings.compact ? 'compact' : ''}`; 
                 card.id = `job-card-${j.ID}`; 
                 card.setAttribute('onpointerdown', `handlePointerDown(event, '${j.ID}')`);
                 card.setAttribute('onpointerup', `handlePointerUp()`);
@@ -1790,12 +1802,14 @@ ${schDetail}
                             <h2 onclick="viewJobImages(window._jobImages['${j.ID}'].sheet, window._jobImages['${j.ID}'].artwork)" class="text-xl font-black text-slate-800 uppercase mb-2 hover:text-blue-600 transition-colors break-words leading-tight ${!isSelectionMode ? 'cursor-pointer' : ''}">${j.Customer}</h2>
                             <div class="flex flex-col">
                                 <div class="text-blue-600 font-black text-base">${formatNum(j.BagsQty)} Bags</div>
+                                ${!appSettings.hideDetails ? `
                                 <div class="font-bold text-[11px] flex flex-wrap items-center mt-0.5">
                                     <span class="dot-separator text-orange-600">${j.CutLength}cm Length</span>
                                     ${j.Size ? `<span class="dot-separator text-slate-500">${j.Size} Size</span>` : ''}
                                     ${j.GSM ? `<span class="dot-separator text-slate-500">${j.GSM} Gsm</span>` : ''}
                                     ${j.Color ? `<span class="dot-separator text-slate-500">${j.Color}</span>` : ''}
                                 </div>
+                                ` : `<div class="font-bold text-[11px] flex flex-wrap items-center mt-0.5"><span class="text-orange-600">${j.CutLength}cm Length</span></div>`}
                                 <div class="printing-label"><i class="fa-solid fa-print"></i> <span>${printingLabels[j.Printing] || 'Plain'}</span></div>
                                 ${instText ? `<div class="instruction-text"><i class="fa-solid fa-circle-exclamation mt-0.5"></i><span>${instText}</span></div>` : ''}
                                 <div class="mt-3 flex flex-col gap-1">${scheduleHtml}</div>
@@ -1956,10 +1970,16 @@ ${schDetail}
             thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
             let recentJobsList = [];
 
+            const q = document.getElementById('search').value.toLowerCase(); // Search ki value li
+
             jobs.forEach(j => {
                 if(j.ID === 'SYSTEM_SETTINGS_V1') return;
                 
                 const details = parseJobDetails(j);
+                
+                // Naya Search Check
+                const isMatch = [details.date, j.JobNo, j.Customer, j.Size, j.GSM, j.Color, j.CutLength + "cm"].join(" ").toLowerCase().includes(q);
+                if (!isMatch) return; // Agar text match nahi hua toh dashboard mein add nahi karega
                 if (details.date && new Date(details.date) >= thirtyDaysAgo) {
                     recentJobsList.push(j);
                 }
@@ -1989,7 +2009,7 @@ ${schDetail}
                             const rd = parseJobDetails(rj).date;
                             const rStat = calculateJobStatus(rj);
                             return `
-                            <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex justify-between items-center" onclick="switchTab('tab-home', document.querySelector('.nav-item:nth-child(1)')); setTimeout(() => { document.getElementById('search').value='${rj.JobNo}'; renderJobs(); }, 100);">
+                            <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex justify-between items-center" onclick="switchTab('tab-home', document.getElementById('nav-home')); setTimeout(() => { document.getElementById('search').value='${rj.JobNo}'; renderJobs(); }, 100);">
                                 <div>
                                     <div class="flex items-center gap-2 mb-1">
                                         <span class="text-[9px] font-black bg-slate-900 text-white px-2 py-0.5 rounded shadow-sm"># ${rj.JobNo}</span>
@@ -2042,7 +2062,6 @@ ${schDetail}
                             <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-0.5">Total Bags</p>
                         </div>
                     </div>
-                    <!-- CHANGED TO REQUIRED METERS -->
                     <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-[0_4px_12px_rgba(0,0,0,0.03)] flex flex-col justify-between">
                         <div class="w-12 h-12 bg-gradient-to-br from-orange-50 to-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-4 text-xl shadow-inner border border-orange-100"><i class="fa-solid fa-bullseye"></i></div>
                         <div>
@@ -2077,8 +2096,16 @@ ${schDetail}
             const activityList = document.getElementById('activity-list');
             if (!activityList) return;
             
+            const q = document.getElementById('search').value.toLowerCase(); // Search ki value li
+
             const activeJobs = jobs.filter(j => {
                 if (j.ID === 'SYSTEM_SETTINGS_V1') return false;
+                
+                // Naya Search Check
+                const details = parseJobDetails(j);
+                const isMatch = [details.date, j.JobNo, j.Customer, j.Size, j.GSM, j.Color, j.CutLength + "cm"].join(" ").toLowerCase().includes(q);
+                if (!isMatch) return false;
+
                 const status = calculateJobStatus(j);
                 return status.pct > 0 && !status.isComplete;
             });
@@ -2100,7 +2127,7 @@ ${schDetail}
                 const { done, req, pct } = calculateJobStatus(j);
                 const remainingMtrs = Math.max(0, req - done);
                 return `
-                    <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-[0_4px_12px_rgba(0,0,0,0.02)] relative overflow-hidden active:scale-95 transition-all cursor-pointer hover:border-blue-200" onclick="switchTab('tab-home', document.querySelector('.nav-item:nth-child(1)')); setTimeout(() => { const card = document.getElementById('job-card-${j.ID}'); if(card) { card.scrollIntoView({behavior: 'smooth', block: 'center'}); card.classList.add('ring-4', 'ring-blue-300', 'transition-all', 'duration-500'); setTimeout(()=>card.classList.remove('ring-4', 'ring-blue-300'), 1500); } }, 100);">
+                    <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-[0_4px_12px_rgba(0,0,0,0.02)] relative overflow-hidden active:scale-95 transition-all cursor-pointer hover:border-blue-200" onclick="switchTab('tab-home', document.getElementById('nav-home')); setTimeout(() => { const card = document.getElementById('job-card-${j.ID}'); if(card) { card.scrollIntoView({behavior: 'smooth', block: 'center'}); card.classList.add('ring-4', 'ring-blue-300', 'transition-all', 'duration-500'); setTimeout(()=>card.classList.remove('ring-4', 'ring-blue-300'), 1500); } }, 100);">
                         <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-blue-400 to-indigo-600"></div>
                         <div class="flex justify-between items-start mb-3 pl-2">
                             <div class="flex-1 pr-3">
@@ -2264,6 +2291,3 @@ ${schDetail}
     </script>
 </body>
 </html>
-
-
-
